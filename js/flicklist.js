@@ -100,7 +100,11 @@ function searchMovies(query, callback) {
       console.log(response);
 // array.map(function(currentValue, index, arr), thisValue)
     var idarray = [response.results];
-    var keywordIDs = idarray.map(getID);
+    console.log("Array",idarray);
+    var keywordIDs = idarray.map(function(query){
+        return query.id;
+    });
+    console.log("IDs",keywordIDs);
     var keywordsString = keywordIDs.join("|");
     console.log(keywordsString);
 
@@ -108,9 +112,11 @@ function searchMovies(query, callback) {
 }
 });
 }
-    function getID(banana){
-        return banana.id;
-    }
+    // function getID(string){
+    //
+    //     return string.id;
+    //     // console.log("banana.id");
+    // }
 
 /**
  * re-renders the page with new content, based on the current state of the model
