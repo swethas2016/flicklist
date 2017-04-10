@@ -99,10 +99,10 @@ function searchMovies(query, callback) {
     console.log("Searched");
       console.log(response);
 // array.map(function(currentValue, index, arr), thisValue)
-    var idarray = [response.results];
-    console.log("Array",idarray);
-    var keywordIDs = idarray.map(function(query){
-        return query.id;
+    // var idarray = [response.results];
+    // console.log("Array",idarray);
+    var keywordIDs = response.results.map(function(keywordObj){
+        return keywordObj.id;
     });
     console.log("IDs",keywordIDs);
     var keywordsString = keywordIDs.join("|");
